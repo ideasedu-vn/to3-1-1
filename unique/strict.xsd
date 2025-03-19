@@ -8,39 +8,31 @@
     <xs:documentation>
        This work is licensed under the Creative Commons Attribution-ShareAlike
        License.  To view a copy of this license, see the file license.txt,
-       visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+       visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
        Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
     </xs:documentation>
 
     <xs:documentation>
-       This component schema provides attribute group declarations for metadata
-       elements to support strict validation of element uniqueness constraints,
-       by providing the attribute uniqueElementName for each metadata element
-       that should appear with multiplicity at most one.
+       This component schema defines attribute group declarations for LOM data
+       elements defined in the LOMv1.0 base schema to support schema-based 
+       validation of the uniqueness constraints with a LOM XML instance by 
+       introducing the attribute "uniqueElementName" for each LOM data element
+       that appears with a multiplicity of at most one.
 
        NOTE: For most applications, enforcing the uniqueness constraints using the 
-       unique/strict.xsd component XSD is desirable, but adding such an artificial 
-       attribute is undesirable, although the addition of the artificial attribute 
-       is unlikely to cause problems.
+       unique/strict.xsd component XSD is desirable. Although adding the attribute 
+       "uniqueElementName" is undesirable, it is unlikely to cause problems.
+
+       Duplicate declarations are included as comments for completeness.  These 
+       declarations should remain commented out or they can be removed completely.
     </xs:documentation>
-    <xs:documentation>
-        *****************************************************************************
-        **                           CHANGE HISTORY                                **
-        *****************************************************************************
-        ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
-        **                XSD.                                                     **
-        *****************************************************************************
-      </xs:documentation>
   </xs:annotation>
 
   <!-- Attribute group declarations -->
 
-  <!-- Duplicate declarations are included as comments. -->
-
   <!-- For duplicate element names with different local multiplicities,
        the unique declaration is used.  The non-unique instances use
-       local element declarations.  (<language>, <description>, <entity>)
-    -->
+       local element declarations.  (<language>, <description>, <entity>)-->
 
   <!-- Learning Object Metadata -->
   <xs:attributeGroup name="lom"/>

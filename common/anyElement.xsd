@@ -8,13 +8,13 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides an element group declaration used for
-         custom metadata elements.
+         This component schema definition provides the element group declaration and the
+         attribute group declaration used for extension XML elements and attributes.
       </xs:documentation>
    </xs:annotation>
 

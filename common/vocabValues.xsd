@@ -8,27 +8,23 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides global type declarations for the standard
-         enumerated types for those metadata elements whose values are taken from
-         a vocabulary datatype.
-      </xs:documentation>
-      <xs:documentation>
-        ****************************************************************************
-        **                           CHANGE HISTORY                               **
-        ****************************************************************************
-        ** 09/22/2003:  - Updated comment describing this file to state that this **
-        **                file is the LOM V1.0 Base Schema vocabulary source and  **
-        **                value declarations.                                     ** 
-        ****************************************************************************
+         This component schema definition provides global type declarations for the standard
+         LOMv1.0 vocabulary tokens for those LOM data elements whose values are taken from
+         a Vocabulary data type.
+
+         This component schema defintion defines the stanard vocabulary value 
+         declarations as defined in the LOMv1.0 base schema.  These vocabulary
+         value declarations are used in conjunction with both vocab/custom.xsd and
+         vocab/strict.xsd.
       </xs:documentation>
    </xs:annotation>
 
-   <!-- LOM V1.0 Base Schema vocabulary source and value declarations -->
+   <!-- LOMv1.0 base schema vocabulary source and value declarations -->
 
    <!-- Source -->
    <xs:simpleType name="sourceValues">
@@ -36,6 +32,7 @@
          <xs:enumeration value="LOMv1.0"/>
       </xs:restriction>
    </xs:simpleType>
+           
 
    <!-- 1.7 Structure -->
    <xs:simpleType name="structureValues">

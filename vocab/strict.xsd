@@ -9,30 +9,27 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides simple type declarations for metadata
-         elements whose values are taken from the IEEE standard vocabulary token set.
+         This component schema definition provides simple type declarations for LOM
+         data elements that are defined as Vocabulary data types.
 
-         This component schema supports strict validation of vocabulary values by
-         checking that both the source and value are from the IEEE standard token set.
-      </xs:documentation>
-      <xs:documentation>
-        *****************************************************************************
-        **                           CHANGE HISTORY                                **
-        *****************************************************************************
-        ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
-        **                XSD.                                                     **
-        *****************************************************************************
+         This component schema definition enforces that vocabulary values are only those
+         specified in 1484.12.3.  The component schema definition does 
+         not allow custom vocabulary values from other sources.
+
+         NOTE:  This component schema definition supports the validation of strictly 
+         conforming vocabulary values by checking that both sources and values are from the
+         token set defined in the LOMv1.0 base schema.
       </xs:documentation>
    </xs:annotation>
 
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM"/>
 
-   <!-- Vocabulary type declarations -->
+   <!-- Vocabulary data type declarations -->
 
    <!-- Source -->
    <xs:simpleType name="source">

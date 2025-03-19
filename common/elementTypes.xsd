@@ -10,12 +10,20 @@
     <xs:documentation>
        This work is licensed under the Creative Commons Attribution-ShareAlike
        License.  To view a copy of this license, see the file license.txt,
-       visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+       visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
        Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
     </xs:documentation>
 
     <xs:documentation>
-       This component schema provides global type declarations for metadata elements.
+       This component schema defintion defines global schema data type declarations
+       for data elements defined in the LOMv1.0 base schema.  This component XSD
+       defines the aggregation relationship among the LOM data elements.  These aggregation
+       relationships enforce the LOMv1.0 base schema requirement that elements can only
+       be present in a LOM XML instance as elements of the aggregate element to which they
+       belong.
+
+       Duplicate declarations are included as comments for completeness.  These declarations
+       should remain commented out or they can be removed completely.
     </xs:documentation>
   </xs:annotation>
 
@@ -39,6 +47,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:lom"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 1 General -->
@@ -46,7 +55,7 @@
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:group ref="identifier"/>
       <xs:group ref="title"/>
-      <xs:group ref="languageIdOrNone"/>
+      <xs:group ref="language"/>
       <xs:group ref="descriptionUnbounded"/>
       <xs:group ref="keyword"/>
       <xs:group ref="coverage"/>
@@ -55,6 +64,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:general"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 1.1 Identifier -->
@@ -65,6 +75,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:identifier"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 1.1.1 Catalog -->
@@ -72,15 +83,17 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:catalog"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
-  </xs:complexType>
+  </xs:complexType> 
 
   <!-- 1.1.2 Entry -->
   <xs:complexType name="entry">
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:entry"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -88,26 +101,30 @@
   <!-- 1.2 Title -->
   <xs:complexType name="title">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:title"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
 
-  <!-- 1.3 Language
+
+  <!-- 1.3 Language -->
   <xs:complexType name="language">
     <xs:simpleContent>
-      <xs:extension base="LanguageIdOrNone">
+      <xs:extension base="LanguageId">
         <xs:attributeGroup ref="ag:language"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
-  </xs:complexType> -->
+  </xs:complexType>
 
   <!-- 1.4 Description
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -115,8 +132,9 @@
   <!-- 1.5 Keyword -->
   <xs:complexType name="keyword">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:keyword"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -124,8 +142,9 @@
   <!-- 1.6 Coverage -->
   <xs:complexType name="coverage">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:coverage"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -157,13 +176,15 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:lifeCycle"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 2.1 Version -->
   <xs:complexType name="version">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:version"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -186,6 +207,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:contribute"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 2.3.1 Role -->
@@ -202,6 +224,7 @@
     <xs:simpleContent>
       <xs:extension base="VCard">
         <xs:attributeGroup ref="ag:entity"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -211,6 +234,7 @@
     <xs:complexContent>
       <xs:extension base="DateTime">
         <xs:attributeGroup ref="ag:date"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -225,6 +249,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:metaMetadata"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 3.1 Identifier
@@ -235,6 +260,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:identifier"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType> -->
 
   <!-- 3.1.1 Catalog
@@ -242,6 +268,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:catalog"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -251,6 +278,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:entry"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -264,6 +292,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:contribute"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 3.2.1 Role -->
@@ -280,6 +309,7 @@
     <xs:simpleContent>
       <xs:extension base="VCard">
         <xs:attributeGroup ref="ag:entity"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -289,6 +319,7 @@
     <xs:complexContent>
       <xs:extension base="DateTime">
         <xs:attributeGroup ref="ag:date"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -298,18 +329,20 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:metadataSchema"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
 
-  <!-- 3.4 Language -->
+  <!-- 3.4 Language 
   <xs:complexType name="language">
     <xs:simpleContent>
       <xs:extension base="LanguageId">
         <xs:attributeGroup ref="ag:language"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
-  </xs:complexType>
+  </xs:complexType>-->
 
   <!-- 4 Technical -->
   <xs:complexType name="technical">
@@ -324,6 +357,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:technical"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 4.1 Format -->
@@ -331,6 +365,7 @@
     <xs:simpleContent>
       <xs:extension base="MimeType">
         <xs:attributeGroup ref="ag:format"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -340,6 +375,7 @@
     <xs:simpleContent>
       <xs:extension base="Size">
         <xs:attributeGroup ref="ag:size"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -349,6 +385,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:location"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -360,6 +397,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:requirement"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 4.4.1 OrComposite -->
@@ -372,6 +410,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:orComposite"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 4.4.1.1 Type -->
@@ -379,6 +418,7 @@
     <xs:complexContent>
       <xs:extension base="typeVocab">
         <xs:attributeGroup ref="ag:type"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -388,6 +428,7 @@
     <xs:complexContent>
       <xs:extension base="nameVocab">
         <xs:attributeGroup ref="ag:name"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -397,6 +438,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:minimumVersion"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -406,6 +448,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:maximumVersion"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -413,8 +456,9 @@
   <!-- 4.5 Installation Remarks -->
   <xs:complexType name="installationRemarks">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:installationRemarks"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -422,8 +466,9 @@
   <!-- 4.6 Other Platform Requirements -->
   <xs:complexType name="otherPlatformRequirements">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:otherPlatformRequirements"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -433,6 +478,7 @@
     <xs:complexContent>
       <xs:extension base="Duration">
         <xs:attributeGroup ref="ag:duration"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -450,10 +496,11 @@
       <xs:group ref="difficulty"/>
       <xs:group ref="typicalLearningTime"/>
       <xs:group ref="descriptionUnbounded"/>
-      <xs:group ref="languageId"/>
+      <xs:group ref="language"/>
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:educational"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 5.1 Interactivity Type -->
@@ -513,8 +560,9 @@
   <!-- 5.7 Typical Age Range -->
   <xs:complexType name="typicalAgeRange">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:typicalAgeRange"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -533,6 +581,7 @@
     <xs:complexContent>
       <xs:extension base="Duration">
         <xs:attributeGroup ref="ag:typicalLearningTime"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -540,8 +589,9 @@
   <!-- 5.10 Description
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -551,6 +601,7 @@
     <xs:simpleContent>
       <xs:extension base="LanguageId">
         <xs:attributeGroup ref="ag:language"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -564,6 +615,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:rights"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 6.1 Cost -->
@@ -587,8 +639,9 @@
   <!-- 6.3 Description -->
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -601,6 +654,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:relation"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 7.1 Kind -->
@@ -620,6 +674,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:resource"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 7.2.1 Identifier
@@ -630,6 +685,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:identifier"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType> -->
 
   <!-- 7.2.1.1 Catalog
@@ -637,6 +693,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:catalog"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -646,6 +703,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:entry"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType> -->
@@ -653,8 +711,9 @@
   <!-- 7.2.2 Description
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -668,6 +727,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:annotation"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 8.1 Entity -->
@@ -675,6 +735,7 @@
     <xs:simpleContent>
       <xs:extension base="VCard">
         <xs:attributeGroup ref="ag:entity"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -684,6 +745,7 @@
     <xs:complexContent>
       <xs:extension base="DateTime">
         <xs:attributeGroup ref="ag:date"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -691,8 +753,9 @@
   <!-- 8.3 Description
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -707,6 +770,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:classification"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 9.1 Purpose -->
@@ -726,13 +790,15 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:taxonPath"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 9.2.1 Source -->
   <xs:complexType name="source">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:source"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -745,6 +811,7 @@
       <xs:group ref="ex:customElements"/>
     </xs:choice>
     <xs:attributeGroup ref="ag:taxon"/>
+    <xs:attributeGroup ref="ex:customAttributes"/>
   </xs:complexType>
 
   <!-- 9.2.2.1 Id -->
@@ -752,6 +819,7 @@
     <xs:simpleContent>
       <xs:extension base="CharacterString">
         <xs:attributeGroup ref="ag:id"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -759,8 +827,9 @@
   <!-- 9.2.2.2 Entry -->
   <xs:complexType name="entryTaxon">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:entry"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -768,8 +837,9 @@
   <!-- 9.3 Description
   <xs:complexType name="description">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:description"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->
@@ -777,8 +847,9 @@
   <!-- 9.4 Keyword
   <xs:complexType name="keyword">
     <xs:complexContent>
-      <xs:extension base="LangString">
+      <xs:extension base="LanguageString">
         <xs:attributeGroup ref="ag:keyword"/>
+        <xs:attributeGroup ref="ex:customAttributes"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> -->

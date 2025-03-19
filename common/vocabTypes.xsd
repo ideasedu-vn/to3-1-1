@@ -11,16 +11,26 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides global type declarations for those metadata
-         elements whose values are taken from a vocabulary datatype.
+         This component schema defintion provides global type declarations for those
+         LOM data elements whose values are taken from a Vocabulary data type.
       </xs:documentation>
    </xs:annotation>
 
+   <xs:annotation>
+       <xs:documentation>This component XSD requires schema components from other 
+       schemas that are defined in other namespaces.  These statements import the 
+       appropriate components. The xsi:schemaLocation attribute is used to specify 
+       the location of the file that contains the schema that defines the namespace.  
+       The xsi:schemaLocation attribute is optional and is ommitted.  By definition of 
+       the composite schemas the appropriate namespaces and related files where those
+       namespaces are defined are brought into scope.  Some XML parsers may require 
+       these import statements to contain the optional xsi:schemaLocation attribute.</xs:documentation> 
+   </xs:annotation>
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/unique"/>
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/extend"/>
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/vocab"/>
@@ -32,6 +42,7 @@
       <xs:simpleContent>
          <xs:extension base="voc:source">
             <xs:attributeGroup ref="ag:source"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -43,12 +54,14 @@
          <xs:element name="value" type="structureValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
   
    <xs:complexType name="structureValue">
       <xs:simpleContent>
          <xs:extension base="voc:structure">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -60,12 +73,14 @@
          <xs:element name="value" type="aggregationLevelValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
   
    <xs:complexType name="aggregationLevelValue">
       <xs:simpleContent>
          <xs:extension base="voc:aggregationLevel">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -77,12 +92,14 @@
          <xs:element name="value" type="statusValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="statusValue">
       <xs:simpleContent>
          <xs:extension base="voc:status">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -94,12 +111,14 @@
          <xs:element name="value" type="roleValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="roleValue">
       <xs:simpleContent>
          <xs:extension base="voc:role">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -111,12 +130,14 @@
          <xs:element name="value" type="roleMetaValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
  
    <xs:complexType name="roleMetaValue">
       <xs:simpleContent>
          <xs:extension base="voc:roleMeta">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -128,12 +149,14 @@
          <xs:element name="value" type="typeValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="typeValue">
       <xs:simpleContent>
          <xs:extension base="voc:type">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -145,12 +168,14 @@
          <xs:element name="value" type="nameValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="nameValue">
       <xs:simpleContent>
          <xs:extension base="voc:name">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -162,12 +187,14 @@
          <xs:element name="value" type="interactivityTypeValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="interactivityTypeValue">
       <xs:simpleContent>
          <xs:extension base="voc:interactivityType">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -179,12 +206,14 @@
          <xs:element name="value" type="learningResourceTypeValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="learningResourceTypeValue">
       <xs:simpleContent>
          <xs:extension base="voc:learningResourceType">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -196,12 +225,14 @@
          <xs:element name="value" type="interactivityLevelValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="interactivityLevelValue">
       <xs:simpleContent>
          <xs:extension base="voc:interactivityLevel">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -213,12 +244,14 @@
          <xs:element name="value" type="semanticDensityValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="semanticDensityValue">
       <xs:simpleContent>
          <xs:extension base="voc:semanticDensity">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -230,12 +263,14 @@
          <xs:element name="value" type="intendedEndUserRoleValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="intendedEndUserRoleValue">
       <xs:simpleContent>
          <xs:extension base="voc:intendedEndUserRole">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -247,12 +282,14 @@
          <xs:element name="value" type="contextValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="contextValue">
       <xs:simpleContent>
          <xs:extension base="voc:context">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -264,12 +301,14 @@
          <xs:element name="value" type="difficultyValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="difficultyValue">
       <xs:simpleContent>
          <xs:extension base="voc:difficulty">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -281,12 +320,14 @@
          <xs:element name="value" type="costValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="costValue">
       <xs:simpleContent>
          <xs:extension base="voc:cost">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -298,12 +339,14 @@
          <xs:element name="value" type="copyrightAndOtherRestrictionsValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="copyrightAndOtherRestrictionsValue">
       <xs:simpleContent>
          <xs:extension base="voc:copyrightAndOtherRestrictions">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -315,12 +358,14 @@
          <xs:element name="value" type="kindValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="kindValue">
       <xs:simpleContent>
          <xs:extension base="voc:kind">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -332,12 +377,14 @@
          <xs:element name="value" type="purposeValue"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
    <xs:complexType name="purposeValue">
       <xs:simpleContent>
          <xs:extension base="voc:purpose">
             <xs:attributeGroup ref="ag:value"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>

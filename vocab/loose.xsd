@@ -9,35 +9,32 @@
     <xs:documentation>
        This work is licensed under the Creative Commons Attribution-ShareAlike
        License.  To view a copy of this license, see the file license.txt,
-       visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+       visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
        Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
     </xs:documentation>
 
     <xs:documentation>
-       This component schema provides simple type declarations for metadata
-       elements that are defined to be of the Vocabulary datatype.
+       This component schema definition provides simple type declarations for LOM
+       data elements that are defined as Vocabulary data types.
 
-       This component schema supports loose validation of vocabulary value constraints
-       by allowing both the source and value to be arbitrary strings. 
+       This component schema definition enforces that vocabulary sources and values
+       are character strings, which simplifies the schema validation process for those
+       applications that perform vocabulary source/value validation using 
+       post-schema-validation.
 
-       NOTE-The absence of the enforcement of vocabulary values does not relieve a 
-       particular LOM instance from satisfying vocabulary requirements defined in the
-       LOMv1.0 base schema. Applications that require the use of vocab/loose.xsd 
+       This component schema definition relaxes the validation constraints by 
+       allowing both sources and values to be arbitrary character strings.
+
+       NOTE: The absence of the enforcement of vocabulary values does not relieve a 
+       particular LOM XML instance from satisfying vocabulary requirements defined 
+       in the LOMv1.0 base schema. Applications that require the use of vocab/loose.xsd 
        component XSD should enforce those vocabulary requirements by other means.
     </xs:documentation>
-    <xs:documentation>
-        *****************************************************************************
-        **                           CHANGE HISTORY                                **
-        *****************************************************************************
-        ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
-        **                XSD.                                                     **
-        *****************************************************************************
-      </xs:documentation>
   </xs:annotation>
 
   <xs:import namespace="http://ltsc.ieee.org/xsd/LOM"/>
 
-  <!-- Vocabulary type declarations -->
+  <!-- Vocabulary data type declarations -->
 
   <!-- Source -->
   <xs:simpleType name="source">

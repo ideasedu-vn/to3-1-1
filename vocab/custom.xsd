@@ -10,36 +10,31 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides simple type declarations for metadata
-         elements whose values are taken from a vocabulary datatype.
+         This component schema definition provides simple type declarations for LOM
+         data elements that are defined as Vocabulary data types.
 
-         This component schema supports strict validation of both standard and custom
-         vocabulary values by checking that both the source and value are taken
-         from either the IEEE standard token set or from a custom token set.  
+         This component schema definition enforces that vocabulary values are only 
+         those specified in 1484.12.3 or in a custom vocabulary.  This component 
+         schema definition enforces adherence to the combined use of 1484.12.3
+         defined vocabulary values and custom vocabulary values by checking that both
+         sources and values are taken from either the token set defined in 1484.12.3 or
+         from a custom vocabulary.
 
          Organizations are free to define their own namespace for the custom vocabulary
          extensions.  For completeness this XSD is set up to use a namespace defined
-         as xmlns:ls="http://ltsc.ieee.org/xsd/LOM/custom"
-      </xs:documentation>
-      <xs:documentation>
-        *****************************************************************************
-        **                           CHANGE HISTORY                                **
-        *****************************************************************************
-        ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
-        **                XSD.                                                     **
-        *****************************************************************************
+         as xmlns:lx="http://ltsc.ieee.org/xsd/LOM/custom"
       </xs:documentation>
    </xs:annotation>
 
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM"/>
    <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/custom"/>
   
-   <!-- Vocabulary type declarations -->
+   <!-- Vocabulary data type declarations -->
 
    <!-- Source -->
    <xs:simpleType name="source">

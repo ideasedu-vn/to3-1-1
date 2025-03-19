@@ -8,16 +8,20 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides element name declarations for metadata elements.
+         This component schema defintion defines global element declarations for 
+         each of the data elements defined in the LOMv1.0 base schema.  This component
+         schema definition is used to check for the uniqueness of elements declared
+         to be unique within their parent elements by the presence of the 
+         "uniqueElementName" attribute.  The XML Schema constraint "unique" is used 
+         to enforce uniqueness constraints.
 
-         This component schema checks for the uniqueness of elements declared to be unique
-         within their parent by the presence of the uniqueElementName attribute,
-         and is common to all uniqueness profiles.
+         Duplicate declarations are included as comments for completeness.  These 
+         declarations should remain commented out or they can be removed completely.
       </xs:documentation>
    </xs:annotation>
 
@@ -70,17 +74,17 @@
       </xs:sequence>
    </xs:group>
 
-   <!-- 1.3 Language -->
-   <xs:group name="languageIdOrNone">
+   <!-- 1.3 Language--> 
+   <xs:group name="language">
       <xs:sequence>
-         <xs:element name="language" type="LanguageIdOrNone"/>
+         <xs:element name="language" type="LanguageId"/>
       </xs:sequence>
    </xs:group>
 
    <!-- 1.4 Description -->
    <xs:group name="descriptionUnbounded">
       <xs:sequence>
-         <xs:element name="description" type="LangString"/>
+         <xs:element name="description" type="LanguageString"/>
       </xs:sequence>
    </xs:group>
 
@@ -284,12 +288,12 @@
       </xs:sequence>
    </xs:group>
 
-   <!-- 3.4 Language -->
+   <!-- 3.4 Language
    <xs:group name="language">
       <xs:sequence>
-         <xs:element name="language" type="language"/>
+         <xs:element name="language" type="LanguageId"/>
       </xs:sequence>
-   </xs:group>
+   </xs:group> -->
 
    <!-- 4 Technical -->
    <xs:group name="technical">
@@ -525,16 +529,16 @@
    <!-- 5.10 Description
    <xs:group name="descriptionUnbounded">
       <xs:sequence>
-         <xs:element name="description" type="LangString"/>
+         <xs:element name="description" type="LanguageString"/>
       </xs:sequence>
    </xs:group> -->
 
-   <!-- 5.11 Language -->
-   <xs:group name="languageId">
+   <!-- 5.11 Language
+   <xs:group name="language">
       <xs:sequence>
          <xs:element name="language" type="LanguageId"/>
       </xs:sequence>
-   </xs:group>
+   </xs:group>-->
 
    <!-- 6 Rights -->
    <xs:group name="rights">

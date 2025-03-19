@@ -8,13 +8,13 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema provides the element name declaration for the
-         root element for all LOM instances.
+         This component schema defintion provides the element name declaration for the
+         root element for all LOM XML instances.
       </xs:documentation>
    </xs:annotation>
 

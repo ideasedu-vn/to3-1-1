@@ -9,22 +9,16 @@
     <xs:documentation>
        This work is licensed under the Creative Commons Attribution-ShareAlike
        License.  To view a copy of this license, see the file license.txt,
-       visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+       visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
        Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
     </xs:documentation>
 
     <xs:documentation>
-       This component schema defines the content model group customElements
-       to support validation of custom metadata elements. This component XSD 
-       should be used if extensions are to be supported in LOM instances.
-    </xs:documentation>
-    <xs:documentation>
-        *****************************************************************************
-        **                           CHANGE HISTORY                                **
-        *****************************************************************************
-        ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
-        **                XSD.                                                     **
-        *****************************************************************************
+       This component schema defines the XML Schema content model groups customElements 
+       and customAttributes to support validation of extension XML elements and attributes. 
+
+       This component XSD should be used if extensions are to be supported in LOM 
+       XML instances.
     </xs:documentation>
   </xs:annotation>
 
@@ -37,5 +31,9 @@
       <xs:group ref="lom:customElements"/>
     </xs:choice>
   </xs:group>
+
+  <xs:attributeGroup name="customAttributes">
+     <xs:anyAttribute namespace="##other" processContents="lax" /> 
+  </xs:attributeGroup>
 
 </xs:schema>
