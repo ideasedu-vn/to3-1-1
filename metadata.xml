@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM lom.xsd">
+<lom>
   <general>
     <!--****** 2 ******-->
     <identifier>
@@ -8,19 +8,11 @@
     </identifier>
     <!--****** 1 ******-->
     <title>
-      <string language="en-US">Ôn tập chủ đề 12</string>
+      <string language="en-US">Ôn tập chủ đề 1</string>
     </title>
     <language>en</language>
     <!--****** 3 ******-->
-    <description>
-      <string language="en-US">
-      </string>
-    </description>
     <!--****** 4 ******-->
-    <keyword>
-      <string language="en-US">
-      </string>
-    </keyword>
   </general>
   <lifeCycle>
     <!--****** 5 ******-->

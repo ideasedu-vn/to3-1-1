@@ -10,13 +10,24 @@
       <xs:documentation>
          This work is licensed under the Creative Commons Attribution-ShareAlike
          License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
+         visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
          Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
       </xs:documentation>
 
       <xs:documentation>
-         This component schema defintion defines global schema data type declarations
-         for data types defined in the LOMv1.0 base schema.
+         This component schema provides global type declarations for LOM datatypes.
+      </xs:documentation>
+      <xs:documentation>
+        ****************************************************************************
+        **                           CHANGE HISTORY                               **
+        ****************************************************************************
+        ** 11/14/2003:  1)Updated xs:pattern for the DurationString.  The pattern **
+        **                did not permit zero values for each of the date and     **
+        **                time components.                                        **
+        **                                                                        **
+        ** 03/15/2004:  1)Changed the restriction type for LanguageIdNone from    **
+        **                xs:string to xs:token                                   **
+        ****************************************************************************
       </xs:documentation>
    </xs:annotation>
 
@@ -31,22 +42,24 @@
    </xs:simpleType>
 
    <!-- LanguageId -->
-   <xs:complexType name="LanguageId">
-       <xs:simpleContent>
-         <xs:extension base="xs:language">
-            <xs:attributeGroup ref="ex:customAttributes"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <xs:simpleType name="LanguageIdOrNone">
+      <xs:union memberTypes="LanguageId LanguageIdNone"/>
+   </xs:simpleType>
+
+   <xs:simpleType name="LanguageId">
+      <xs:restriction base="xs:language"/>
+   </xs:simpleType>
+
+   <xs:simpleType name="LanguageIdNone">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="none"/>
+      </xs:restriction>
+   </xs:simpleType>
 
    <!-- VCard -->
-   <xs:complexType name="VCard">
-       <xs:simpleContent>
-         <xs:extension base="CharacterString">
-            <xs:attributeGroup ref="ex:customAttributes"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <xs:simpleType name="VCard">
+      <xs:restriction base="CharacterString"/>
+   </xs:simpleType>
 
    <!-- MimeType -->
    <xs:simpleType name="MimeType">
@@ -58,20 +71,18 @@
       <xs:restriction base="xs:nonNegativeInteger"/>
    </xs:simpleType>
 
-   <!-- LanguageString -->
-   <xs:complexType name="LanguageString">
+   <!-- LangString -->
+   <xs:complexType name="LangString">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-         <xs:element name="string" type="LangString"/>
+         <xs:element name="string" type="langString"/>
          <xs:group ref="ex:customElements"/>
       </xs:choice>
-      <xs:attributeGroup ref="ex:customAttributes"/>
    </xs:complexType>
 
-   <xs:complexType name="LangString">
+   <xs:complexType name="langString">
       <xs:simpleContent>
          <xs:extension base="CharacterString">
-            <xs:attribute name="language" type="xs:language"/>
-            <xs:attributeGroup ref="ex:customAttributes"/>
+            <xs:attribute name="language" type="LanguageId"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -89,7 +100,6 @@
       <xs:simpleContent>
          <xs:extension base="DateTimeString">
            <xs:attributeGroup ref="ag:DateTimeValue"/>
-           <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -114,7 +124,6 @@
       <xs:simpleContent>
          <xs:extension base="DurationString">
             <xs:attributeGroup ref="ag:DurationValue"/>
-            <xs:attributeGroup ref="ex:customAttributes"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
